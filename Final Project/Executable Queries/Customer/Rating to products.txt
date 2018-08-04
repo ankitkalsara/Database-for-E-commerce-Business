@@ -1,0 +1,14 @@
+-- customer can give rating to only those product which he has ordered (his PO)
+-- pass PO number and Orderitemid
+CALL get_productid(2 	,1,@productid);
+INSERT INTO rating (product_productid, review, rating)
+VALUES(@productid, 'Bad', 1);
+COMMIT;
+
+CALL get_productid(2,2,@productid);
+INSERT INTO rating (product_productid, review, rating)
+VALUES(@productid, 'Bad', 1);
+COMMIT;
+
+
+select * from view_all_product_rating

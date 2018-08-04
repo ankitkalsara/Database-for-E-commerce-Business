@@ -1,0 +1,5 @@
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Shipment TO 'whouse1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Warehouse TO 'whouse1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.create_shipment TO 'whouse1'@'localhost';

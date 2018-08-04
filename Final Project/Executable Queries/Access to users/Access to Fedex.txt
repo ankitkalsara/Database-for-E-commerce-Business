@@ -1,0 +1,17 @@
+GRANT SELECT, UPDATE ON ezeebizdb.Shipment TO 'fedex1'@'localhost';
+
+GRANT SELECT ON ezeebizdb.warehouse TO 'fedex1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.DeliveryProvider 
+TO 'fedex1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Tracking 
+TO 'fedex1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.TrackingStatus 
+TO 'fedex1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.create_tracking TO 'fedex1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.create_tracking_status 
+TO 'fedex1'@'localhost';

@@ -1,0 +1,11 @@
+-- at a time only 1 warehouse will be created
+
+START TRANSACTION;
+
+INSERT INTO warehouse
+(warehousename, warehousecontactno, warehouseemail, warehousestreet,
+warehousecity, warehousestate, warehouseZIP)
+VALUES
+('amazon\'s warehouse', '1234567890', 'warehouse@gmail.com', 'columbus ave', 
+'Boston', 'MA', '02115');
+COMMIT;

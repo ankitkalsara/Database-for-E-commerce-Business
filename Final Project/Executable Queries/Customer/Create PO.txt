@@ -1,0 +1,42 @@
+-- customer can create 1 purchase order at a time
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+START TRANSACTION;
+INSERT INTO purchaseorder
+(customer_customerid, orderplacedon, paymentmethod,
+deliverystreet, deliverycity, deliverystate, deliveryzip)
+VALUES
+(1, current_date(), 'Card', '91 Mission Hill', 'Boston', 'MA', '02120');
+COMMIT;
+-- customer can add multiple order items at the same time
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+START TRANSACTION;
+-- get the latest PO number which is generated
+SELECT PONumber INTO @ponumber FROM purchaseorder ORDER BY ponumber DESC LIMIT 1;
+INSERT INTO orderitem
+(purchaseorder_ponumber, purchaseorder_customer_customerid,
+product_productid, orderedqty)
+VALUES
+(@ponumber,1,1,3);
+
+
+====================================================
+TO GET ADDRESS FROM MAILING DIRECTLY USE BELOW QUERY
+====================================================
+-- customer can create 1 purchase order at a time
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+START TRANSACTION;
+INSERT INTO purchaseorder
+(customer_customerid, orderplacedon, paymentmethod, deliverat)
+VALUES
+(1, current_date(), 'Card', 'Mailing');
+COMMIT;
+-- customer can add multiple order items at the same time
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+START TRANSACTION;
+-- get the latest PO number which is generated
+SELECT PONumber INTO @ponumber FROM purchaseorder ORDER BY ponumber DESC LIMIT 1;
+INSERT INTO orderitem
+(purchaseorder_ponumber, purchaseorder_customer_customerid,
+product_productid, orderedqty)
+VALUES
+(@ponumber,1,1,4);

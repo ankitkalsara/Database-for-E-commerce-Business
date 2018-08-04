@@ -1,0 +1,36 @@
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Customer TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE ON ezeebizdb.GiftCard TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.CreditCard TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.CustomerAddress TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.PurchaseOrder TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE ON ezeebizdb.OrderItem TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Invoice TO 'cust1'@'localhost';
+GRANT SELECT ON ezeebizdb.Product TO 'cust1'@'localhost';
+
+GRANT SELECT ON ezeebizdb.ProductDiscount TO 'cust1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Rating TO 'cust1'@'localhost';
+
+GRANT SELECT ON ezeebizdb.Supplier TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.check_qty TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.create_orderitem TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.get_productid TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.give_rating TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.get_giftcard_balance TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.get_all_orders TO 'cust1'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.get_order_location TO 'cust1'@'localhost';
+
+GRANT SELECT ON ezeebizdb.view_all_product_rating TO 'cust1'@'localhost';

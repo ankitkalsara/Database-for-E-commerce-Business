@@ -1,0 +1,43 @@
+-- single invoice will be created at a time
+START TRANSACTION;
+
+-- get the latest PO number which is generated
+SELECT PONumber INTO @ponumber FROM purchaseorder ORDER BY ponumber DESC LIMIT 1;
+
+-- get the total amount of order (with discount)
+SELECT SUM(orderedqty*(productprice - (productprice * (discountpercentage/100))))
+INTO @discountedprice
+FROM purchaseorder
+INNER JOIN orderitem
+ON purchaseorder.PONumber = orderitem.PurchaseOrder_PONumber
+INNER JOIN product
+ON orderitem.Product_ProductID = product.ProductID
+INNER JOIN productdiscount
+ON product.ProductID = productdiscount.Product_ProductID
+WHERE purchaseorder.PONumber = @ponumber AND 
+productdiscount.discountstartdate <= current_date() 
+AND discountenddate >= current_date();
+
+-- get the total amount of order without discount
+SELECT SUM(orderedqty*productprice)
+INTO @nondiscountedprice
+FROM purchaseorder
+INNER JOIN orderitem
+ON purchaseorder.PONumber = orderitem.PurchaseOrder_PONumber
+INNER JOIN product
+ON orderitem.Product_ProductID = product.ProductID
+INNER JOIN productdiscount
+ON product.ProductID = productdiscount.Product_ProductID
+WHERE purchaseorder.PONumber = @ponumber AND 
+productdiscount.discountstartdate <= current_date() 
+AND discountenddate <= current_date();
+
+-- if the discontedprice is NULL then total will be only nondiscountedprice
+SELECT @discountedprice + @nondiscountedprice INTO @ordertotal;
+SELECT coalesce(@ordertotal, @nondiscountedprice) INTO @finaltotal;
+
+INSERT INTO invoice
+(purchaseorder_ponumber, purchaseorder_customer_customerid, totalamount)
+VALUES
+(@ponumber, 1, @finaltotal);
+COMMIT;

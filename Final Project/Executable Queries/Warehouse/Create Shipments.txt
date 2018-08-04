@@ -1,0 +1,8 @@
+-- warehouse will prepare shipments
+SET @warehouseid = 1;
+SET @ponumber = 1;
+SET @deliveryproviderid = 1;
+SELECT current_user() INTO @currentuser;
+SET @weight = 2.5;
+CALL create_shipment(@warehouseid, @ponumber, @deliveryproviderid, 
+@currentuser, @weight);

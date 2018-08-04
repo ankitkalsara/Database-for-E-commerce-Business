@@ -1,0 +1,15 @@
+-- at a time many delivery providers can be created
+START TRANSACTION;
+
+INSERT INTO deliveryprovider
+
+(providername, providercontactno, provideremail, providerstreet, 
+providercity, providerstate, providerZIP)
+
+VALUES('Fedex-Bos', '1234567890', 'fedexbos@gmail.com', 'columbus ave', 
+'Boston', 'MA', '02115'),
+
+('Fedex-cal', '9876543210', 'fedexcal@gmail.com', 'south ave', 'California',
+'CA', '90001');
+
+COMMIT;

@@ -1,0 +1,18 @@
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Product TO 'supp1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.ProductDiscount 
+TO 'supp1'@'localhost';
+GRANT SELECT ON ezeebizdb.PurchaseOrder TO 'supp1'@'localhost';
+
+
+GRANT SELECT ON ezeebizdb.OrderItem TO 'supp1'@'localhost';
+
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Supplier TO 'supp1'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ezeebizdb.Rating TO 'supp1'@'localhost';
+
+GRANT SELECT ON ezeebizdb.view_most_frequently_buyed_products TO 'supp1'@'localhost';
+
+
+GRANT EXECUTE ON PROCEDURE ezeebizdb.get_total_business_on_days TO 'supp1'@'localhost';

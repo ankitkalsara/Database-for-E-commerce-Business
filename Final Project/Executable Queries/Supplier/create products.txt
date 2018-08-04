@@ -1,0 +1,10 @@
+-- supplier can add multiple products at a time his catalog
+
+START TRANSACTION;
+
+INSERT INTO Product
+(Supplier_supplierid, productname, availproductqty, productprice)
+VALUES
+(1, 'Iphone', 20, 200),
+(1, 'Samsung', 30, 100);
+COMMIT;

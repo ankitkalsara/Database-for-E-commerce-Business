@@ -1,0 +1,11 @@
+-- supplier can add 0 or multiple product discount at a time in his catalog
+
+START TRANSACTION;
+
+INSERT INTO productdiscount
+(product_productid, discountstartdate, discountenddate, discountpercentage)
+VALUES
+(1, '2018-03-01', '2018-03-31', 10),
+(2, '2018-04-04', '2018-04-30', 15),
+(3, '2018-04-04', '2018-04-30', 20);
+COMMIT;

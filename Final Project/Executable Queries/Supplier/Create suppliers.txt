@@ -1,0 +1,12 @@
+-- create suppliers
+START TRANSACTION;
+
+select * from supplier;
+
+INSERT INTO supplier
+(suppliername, supplierstreet, suppliercity, supplierstate, supplierZIP, 
+suppliercontactno, supplieremail)
+VALUES
+('Best buy', 'huntington ave', 'boston', 'MA', '02115', '1234567890', 
+'best@gmail.com');
+COMMIT;

@@ -1,0 +1,4 @@
+-- delivery provider will create tracking numbers
+SET @delieryproviderid = 1;
+SET @shipmentid = 1;
+CALL create_tracking (@delieryproviderid,@shipmentid);

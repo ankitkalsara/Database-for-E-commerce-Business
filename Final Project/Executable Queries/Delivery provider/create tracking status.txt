@@ -1,0 +1,6 @@
+-- delivery provider will create tracking status for given tracking number
+SET @trackingid = 1;
+SET @orderstatelocation = 'NJ';
+SET @orderziplocation = '36521';
+
+CALL create_tracking_status (@trackingid,@orderstatelocation,@orderziplocation);
